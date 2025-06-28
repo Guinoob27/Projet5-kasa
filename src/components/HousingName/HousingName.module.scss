@@ -1,0 +1,26 @@
+@use "../../styles/variables";
+
+.description {
+    color: variables.$primary-color;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.location {
+    color: variables.$primary-color;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+@media (min-width: 875px) {
+    .description {
+        font-size: 36px;
+        margin: 15px 0 5px 0;
+    }
+    .location {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+}

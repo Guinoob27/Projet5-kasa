@@ -1,5 +1,5 @@
 import { Banner } from "../../components/Banner/Banner";
-import picture from "../../assets/banner-home.png";
+import picture from "../../assets/images/banner-home.png";
 import { HousingCard } from "../../components/HousingCard/HousingCard";
 import s from "./Home.module.scss";
 
