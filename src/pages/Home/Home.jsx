@@ -2,10 +2,15 @@ import { Banner } from "../../components/Banner/Banner";
 import picture from "../../assets/images/banner-home.png";
 import { HousingCard } from "../../components/HousingCard/HousingCard";
 import s from "./Home.module.scss";
-
+import json from "../../assets/json/housing.json";
+import { useNavigate, useParams } from "react-router-dom";
+console.log(json);
 
 
 export function Home() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const currentItem = json.find((item) => item.id === id);
   return (
     <div>
       <Banner
@@ -14,12 +19,20 @@ export function Home() {
         text="Chez vous, partout et ailleurs"
       />
       <div className={s.card_container}>
-        <HousingCard />
-        <HousingCard />
-        <HousingCard />
-        <HousingCard />
-        <HousingCard />
-        <HousingCard />
+        {json.map((item) => (
+          <div
+            className={s.galleryItem_container}
+            key={item.id}
+            onClick={() => navigate("/housing/" + item.id)}
+          >
+            <HousingCard
+              key={item.id}
+              title={item.title}
+              picture={item.pictures}
+              currentData={item}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

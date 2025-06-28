@@ -4,31 +4,44 @@ import { HousingName } from "../../components/HousingName/HousingName";
 import { Tag } from "../../components/Tag/Tag";
 import s from "./Housing.module.scss";
 import { Host } from "../../components/Host/Host";
-
+import { Stars } from "../../components/Stars/Stars";
+import { Accordion } from "../../components/Accordion/Accordion";
+import json from "../../assets/json/housing.json";
+import { useParams } from "react-router-dom";
 
 
 export function Housing() {
+  const { id } = useParams();
+  const currentItem = json.find((item) => item.id === id);
+  console.log(currentItem);
+  const tags = currentItem.tags;
   return (
-    <div>
-      <div>
-        <Banner
-          picture={picture}
-          text={"Housing = true"}
-          alternative_text={"Also this"}
-          housing={true}Add commentMore actions
-        />
-        <HousingName
-          name={"Cozy loft on the Canal Saint-Martin"}
-          description={"Paris, Ile de France"}
-        />
-        <div className={s.tag_container}>
-          <Tag />
-          <Tag />
+     <>
+      <Banner
+        picture={currentItem.cover}
+        alternative_text={"Also this"}
+        housing={true}
+      />
+      <div className={s.main_container}>
+        <div>
+          <HousingName
+            name={currentItem.title}
+            description={currentItem.location}
+          />
+          <div className={s.tag_container}>
+            {tags.map((item) => (
+              <Tag tag={item} />
+            ))}
+          </div>
+        </div>
+        <div className={s.host_details}>
+          <Stars />
+          <Host />
         </div>
       </div>
-      <div>
-        <Host />
+      <div className={s.accordion}>
+        <Accordion />
       </div>
-  </div>
+      </>
   );
 }
