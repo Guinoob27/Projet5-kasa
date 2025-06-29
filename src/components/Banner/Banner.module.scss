@@ -1,6 +1,37 @@
 .banner_container {
     position: relative;
-  } 
+  }
+.banner_container button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    margin: 10px
+
+}
+.leftButton {
+    left: 0; 
+}
+
+.rightButton {
+    right: 0; 
+}
+.currentSlide {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    z-index: 1; 
+    font-weight: 400;
+    display: none;
+}   
 .banner_text {
     position: absolute;
     top: 50%;
@@ -31,6 +62,16 @@
     .banner_text{
         text-align: center;
         font-size: 24px;
+    }
+}
+
+@media (min-width: 720px) {
+    .banner_container button {
+        font-size: 42px;
+        margin: 18px;
+    }
+    .currentSlide {
+        display: block;
     }
 }
 

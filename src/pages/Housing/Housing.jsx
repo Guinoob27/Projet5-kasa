@@ -1,5 +1,5 @@
 import { Banner } from "../../components/Banner/Banner";
-import picture from "../../assets/images/banner-home.png";
+
 import { HousingName } from "../../components/HousingName/HousingName";
 import { Tag } from "../../components/Tag/Tag";
 import s from "./Housing.module.scss";
@@ -30,17 +30,27 @@ export function Housing() {
           />
           <div className={s.tag_container}>
             {tags.map((item) => (
-              <Tag tag={item} />
+              <Tag key={item} tag={item} />
             ))}
           </div>
         </div>
         <div className={s.host_details}>
-          <Stars />
-          <Host />
+          <Stars rating={currentItem.rating} />
+          <Host
+            name={currentItem.host.name}
+            picture={currentItem.host.picture}
+          />
         </div>
       </div>
-      <div className={s.accordion}>
-        <Accordion />
+      <div className={s.accordions_container}>
+        <Accordion
+          buttonText="Description"
+          description={currentItem.description}
+        />
+        <Accordion
+          buttonText="Equipements"
+          equipement={currentItem.equipments}
+        />
       </div>
       </>
   );

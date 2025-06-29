@@ -21,6 +21,11 @@
     background-color:#C4C4C4;
     border-radius: 50%;
 }
+.profile_pic img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
 
 @media (min-width: 875px) {
     .host_name{
@@ -31,5 +36,10 @@
     .profile_pic{
         width: 64px;
         height: 64px;
+    }
+    .profile_pic img{
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
     }
 }
