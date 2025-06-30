@@ -4,11 +4,7 @@
     margin-top: 10px;
 }
 
-
-
 .button_title{
-    display: flex;
-    justify-content: space-between;
     padding: 8px;
     text-align: left;
     background-color: variables.$primary-color;
@@ -17,7 +13,9 @@
     width: 100%;
     border-radius: 5px;
     font-size: 13px;
-    
+    font-weight: 420;
+    display: flex;
+    justify-content: space-between;
 }
 
 .list{
@@ -25,7 +23,7 @@
     background-color: #F6F6F6;
     position: relative;
     border-radius: 0 0 4px 4px;
-    color: variables.$primary-color;;
+    color: variables.$primary-color;
     padding: 20px 0;
     opacity: 0; 
     max-height: 0;
@@ -45,11 +43,10 @@
     max-height: 300px; 
 }
 
-
 @media (min-width: 720px) {
     .container {
         margin-top: 30px;
-        width: 48%;       
+        width: 100%;       
     }
     .button_title{
         font-size: 18px;

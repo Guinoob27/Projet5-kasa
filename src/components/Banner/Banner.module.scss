@@ -13,14 +13,14 @@
     margin: 10px
 
 }
-.leftButton {
+.left_button {
     left: 0; 
 }
 
-.rightButton {
+.right_button {
     right: 0; 
 }
-.currentSlide {
+.current_slide {
     position: absolute;
     top: 80%;
     transform: translateY(-50%);
@@ -70,7 +70,7 @@
         font-size: 42px;
         margin: 18px;
     }
-    .currentSlide {
+    .current_slide {
         display: block;
     }
 }

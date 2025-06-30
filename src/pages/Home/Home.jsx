@@ -3,7 +3,7 @@ import picture from "../../assets/images/banner-home.png";
 import { HousingCard } from "../../components/HousingCard/HousingCard";
 import s from "./Home.module.scss";
 import json from "../../assets/json/housing.json";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 console.log(json);
 
 

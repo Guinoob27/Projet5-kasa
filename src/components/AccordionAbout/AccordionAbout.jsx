@@ -1,9 +1,10 @@
-import s from "./Accordion.module.scss";
+import s from "./AccordionAbout.module.scss";
 import { useState } from "react";
 import { ChevronUp } from "react-bootstrap-icons";
 
-export function Accordion({ buttonText, description, equipement }) {
-   const [isOpen, setIsOpen] = useState(false);
+
+export function AccordionAbout({ buttonText, description }) {
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   return (
@@ -13,16 +14,12 @@ export function Accordion({ buttonText, description, equipement }) {
         <ChevronUp
           style={{
             transform: isOpen ? "rotate(-180deg)" : "rotate(0deg)",
-            transition: "transform 0.4s ease",
+            transition: "transform 0.3s ease",
           }}
         />
       </button>
       <div className={`${s.list} ${isOpen ? s.open : ""}`}>
-        {description ? (
-          <p>{description}</p>
-        ) : (
-          equipement.map((element, index) => <p key={index}>{element}</p>)
-        )}
+        <p>{description}</p>
       </div>
     </div>
   );
