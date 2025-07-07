@@ -1,32 +1,37 @@
 import logo from "../../assets/images/logo.png";
 import s from "./Header.module.scss";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 
 
 export function Header() {
-  const navigate = useNavigate();
+  
   return (
     <header>
-       <img
-        onClick={() => navigate("/")}
-        src={logo}
-        className={s.header_logo}
-        alt="Logo Kasa"
-      />
-      <ul>
-        <li>
-          <a href="#" onClick={() => navigate("/")}>
-            ACCUEIL
-          </a>
-        </li>
-        <li>
-          <a href="#" onClick={() => navigate("/about")}>
-            A PROPOS
-          </a>
-        </li>
-      </ul>
+        <NavLink to="/">
+        <img src={logo} className={s.header_logo} alt="Logo Kasa" />
+      </NavLink>
+      <nav>
+        <ul>
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? s.active_link : "")}
+            >
+              ACCUEIL
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? s.active_link : "")}
+            >
+              A PROPOS
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
   )
 }

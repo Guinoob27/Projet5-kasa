@@ -31,6 +31,8 @@
     max-height: 0;
     overflow: hidden;
     transition: opacity 0.3s ease, max-height 0.3s ease;
+    opacity: 1; 
+    max-height: 300px; 
     p {
         margin: 2px 20px;
     }
@@ -40,16 +42,13 @@
     margin-bottom: 10px;
 }
   
-.list.open {
-    opacity: 1; 
-    max-height: 300px; 
-}
+
 
 
 @media (min-width: 720px) {
     .container {
         margin-top: 30px;
-        width: 48%;       
+              
     }
     .button_title{
         font-size: 18px;

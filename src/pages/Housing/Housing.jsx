@@ -7,38 +7,49 @@ import { Host } from "../../components/Host/Host";
 import { Stars } from "../../components/Stars/Stars";
 import { Accordion } from "../../components/Accordion/Accordion";
 import json from "../../assets/json/housing.json";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export function Housing() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const currentItem = json.find((item) => item.id === id);
-  console.log(currentItem);
-  const tags = currentItem.tags;
+  
+   useEffect(() => {
+    if (!currentItem) {
+      navigate("/404");
+    }
+  }, [currentItem, navigate]);
+
+  if (!currentItem) {
+    return null;
+  }
+  
   return (
      <>
       <Carousel />
-      <div className={s.main_container}>
-        <div>
+      <section className={s.main_container}>
+        <article>
           <HousingName
             name={currentItem.title}
             description={currentItem.location}
           />
           <div className={s.tag_container}>
-            {tags.map((item) => (
+            {currentItem.tags.map((item) => (
               <Tag key={item} tag={item} />
             ))}
           </div>
-        </div>
-        <div className={s.host_details}>
+        </article>
+        <article className={s.host_details}>
           <Stars rating={currentItem.rating} />
           <Host
             name={currentItem.host.name}
             picture={currentItem.host.picture}
           />
-        </div>
-      </div>
-      <div className={s.accordions_container}>
+        </article>
+      </section>
+      <section className={s.accordions_container}>
         <Accordion
           buttonText="Description"
           description={currentItem.description}
@@ -47,7 +58,7 @@ export function Housing() {
           buttonText="Equipements"
           equipement={currentItem.equipments}
         />
-      </div>
+       </section>
       </>
   );
 }
