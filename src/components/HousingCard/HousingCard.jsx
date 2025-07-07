@@ -7,7 +7,8 @@ export function HousingCard(props) {
   return (
     <div className={s.card}>
       <img src={props.picture[0]} alt={props.title} />
-      <span>{props.title}</span>
+      <div className={s.gradient}></div>
+      <h2>{props.title}</h2>
     </div>
   );
 }

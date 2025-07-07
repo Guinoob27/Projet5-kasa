@@ -1,4 +1,4 @@
-import { Banner } from "../../components/Banner/Banner";
+import { Carousel } from "../../components/Carousel/Carousel";
 
 import { HousingName } from "../../components/HousingName/HousingName";
 import { Tag } from "../../components/Tag/Tag";
@@ -17,11 +17,7 @@ export function Housing() {
   const tags = currentItem.tags;
   return (
      <>
-      <Banner
-        picture={currentItem.cover}
-        alternative_text={"Also this"}
-        housing={true}
-      />
+      <Carousel />
       <div className={s.main_container}>
         <div>
           <HousingName
