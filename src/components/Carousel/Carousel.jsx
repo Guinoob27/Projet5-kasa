@@ -28,14 +28,15 @@ export function Carousel() {
         src={photos[currentImageIndex]}
         alt={currentItem.title}
       />
+      <p className={s.carousel__counter}>
+            {currentImageIndex + 1} / {photos.length}
+          </p>
        {photos.length > 1 && (
         <>
           <button className={`${s.carousel__left} ${s.carousel__buttons}`} onClick={prevImage}>
             <i className="fa-solid fa-chevron-left fa-2xl"></i>
           </button>
-          <p className={s.carousel__counter}>
-            {currentImageIndex + 1} / {photos.length}
-          </p>
+          
           <button className={`${s.carousel__right} ${s.carousel__buttons}`} onClick={nextImage}>
             <i className="fa-solid fa-chevron-right fa-2xl"></i>
           </button>
